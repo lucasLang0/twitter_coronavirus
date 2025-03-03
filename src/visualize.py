@@ -33,40 +33,36 @@ items = sorted(counts[args.key].items(), key=lambda item: (item[1], item[0]), re
 for k, v in items:
     print(k, ':', v)
 
-# Generate plot if requested
-if args.plot:
-    # Limit to top N items
-    if args.top:
-        items = items[:args.top]
-    
-    # Reverse for better visualization
-    items.reverse()
-    
-    # Create plot
-    if args.horizontal:
-        plt.barh([item[0] for item in items], [item[1] for item in items])
+# Generate plot - remove the if args.plot check to always create the plot
+# Limit to top N items
+if args.top:
+    items = items[:args.top]
+# Reverse for better visualization
+items.reverse()                      
+
+# Create plot
+if args.horizontal:
+    plt.barh([item[0] for item in items], [item[1] for item in items])
+else:
+    plt.bar([item[0] for item in items], [item[1] for item in items])
+plt.xlabel('Categories')
+plt.ylabel('Counts' if not args.percent else 'Percentage')
+title_suffix = f'Top {args.top} ' if args.top else ''
+plt.title(f'{title_suffix}countries that used {args.key} in 2020')
+plt.xticks(rotation=45)  # Rotate x-axis labels for better visibility
+plt.tight_layout()
+
+# Save or display the plot
+if args.output_path:
+    plt.savefig(args.output_path, format='png')
+else:
+    # Determine file type from key
+    tag = args.key
+    if tag.startswith('#'):
+        tag = tag[1:]
+    if 'lang' in args.input_path:
+        output_filename = f"{tag}_language_count.png"
     else:
-        plt.bar([item[0] for item in items], [item[1] for item in items])
-    
-    plt.xlabel('Categories')
-    plt.ylabel('Counts' if not args.percent else 'Percentage')
-    title_suffix = f'Top {args.top} ' if args.top else ''
-    plt.title(f'{title_suffix}countries that used {args.key} in 2020')
-    plt.xticks(rotation=45)  # Rotate x-axis labels for better visibility
-    plt.tight_layout()
-    
-    # Save or display the plot
-    if args.output_path:
-        plt.savefig(args.output_path, format='png')
-    else:
-        # Determine file type from key
-        tag = args.key
-        if tag.startswith('#'):
-            tag = tag[1:]
-        
-        if 'lang' in args.input_path:
-            plt.savefig(f"{tag}_language_count.png", format='png')
-        else:
-            plt.savefig(f"{tag}_country_count.png", format='png')
-        
-        print(f"Plot saved as {tag}_language_count.png or {tag}_country_count.png")
+        output_filename = f"{tag}_country_count.png"
+    plt.savefig(output_filename, format='png')
+    print(f"Plot saved as {output_filename}")
