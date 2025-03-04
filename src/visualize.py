@@ -45,8 +45,8 @@ if args.horizontal:
     plt.barh([item[0] for item in items], [item[1] for item in items])
 else:
     plt.bar([item[0] for item in items], [item[1] for item in items])
-plt.xlabel('Categories')
-plt.ylabel('Counts' if not args.percent else 'Percentage')
+plt.xlabel('Language')
+plt.ylabel('Tweet Count' if not args.percent else 'Percentage')
 title_suffix = f'Top {args.top} ' if args.top else ''
 #plt.title(f'{title_suffix}countries that used {args.key} in 2020')
 plt.xticks(rotation=45)  # Rotate x-axis labels for better visibility
