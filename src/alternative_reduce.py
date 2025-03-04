@@ -20,35 +20,21 @@ import matplotlib.dates as mdates
 
 # map
 total = defaultdict(lambda: Counter())
-pattern = r'geoTwitter([0-9][0-9]-[0-9][0-9]-[0-9][0-9])\.zip\.lang'
+pattern = r'geoTwitter(20-\d{2}-\d{2})\.zip\.lang'
 for output in sorted(os.listdir("./outputs")):
     date_file = os.path.join('./outputs', output)
-    
-    # Print file being processed for debugging
-    print(f"Processing file: {output}")
-    
-    with open(date_file) as f:
+    with open(date_file) as f: 
         date_data = json.load(f)
-    
-    match = re.search(pattern, output)
-    if match:
-        date = match.group(1)
-        print(f"Extracted date: {date}")
-        
-        # Debug which hashtags are found
-        found_tags = []
-        for hashtag in args.hashtags:
-            if hashtag in date_data:
-                count = sum(date_data[hashtag].values())
-                found_tags.append(f"{hashtag}({count})")
-            else:
-                count = 0
-            total[hashtag][date] += count
-        
-        if found_tags:
-            print(f"Found hashtags: {', '.join(found_tags)}")
-        else:
-            print(f"No requested hashtags found in this file")
+        match = re.search(pattern, output)
+        if match:
+            date = match.group(1)
+            for hashtag in args.hashtags:
+                if hashtag in date_data:
+                    count = sum(date_data[hashtag].values())
+                else:
+                    count = 0
+                total[hashtag][date] += count
+#print(total)
 
 # visualize
 
