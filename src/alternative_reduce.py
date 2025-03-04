@@ -35,7 +35,11 @@ def plot_data(data, hashtags):
     plt.ylabel('Number of Tweets')
     plt.title('Daily Usage of Hashtags')
     plt.legend()
-    plt.show()
+    
+    # Save the plot as a PNG file named based on the hashtags used
+    filename = "_".join(hashtags) + ".png"
+    plt.savefig(filename)
+    print(f"Plot saved as {filename}")
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
