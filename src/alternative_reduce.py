@@ -23,7 +23,7 @@ def scan_data_files(data_folder, hashtags):
             month_day = file_name.split('-')[1:3]
             month = int(month_day[0])
             day = int(month_day[1].split('.')[0])
-            day_of_year = (month - 1) * 30 + day
+            day_of_year = (month - 1) * 31 + day  # Use 31 days per month to avoid issues with different month lengths
             daily_data = extract_data_from_file(file_path, hashtags)
             for hashtag, count in daily_data.items():
                 all_data[hashtag][day_of_year] += count
@@ -34,7 +34,6 @@ def plot_data(data, hashtags):
     for hashtag in hashtags:
         counts = [data[hashtag].get(day, 0) for day in days]
         plt.plot(days, counts, label=hashtag)
-    
     plt.xlabel('Day of the Year')
     plt.ylabel('Number of Tweets')
     plt.title('Daily Usage of Hashtags')
