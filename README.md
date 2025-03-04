@@ -57,7 +57,7 @@ I created a new file `alternative_reduce.py` that took a list of hashtags as inp
 1. The x-axis was the day of the year.
 1. The y-axis was the number of tweets that used that hashtag during the year.
 
-The script scanned through all the data in the `outputs` folder created by the mapping step, constructed a dataset containing the necessary information, and used matplotlib to plot the data.
+The script scanned through all the data in the `outputs` folder created by the mapping step, constructed a graph plotting the use of the hashtags #covid19, #corona, and #hospital, and used matplotlib to plot the data.
 
 ### Task 5: Uploading
 
@@ -81,7 +81,7 @@ I committed all code and image output files to the GitHub repository and pushed 
 
 ### Alternative Reduce
 
-!Alternative Reduce Plot
+![Alternative Reduce Plot](https://github.com/lucasLang0/twitter_coronavirus/blob/master/%23covid19_%23corona_%23hospital.png)
 
 ## Conclusion
 
