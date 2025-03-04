@@ -67,15 +67,19 @@ I committed all code and image output files to the GitHub repository and pushed 
 
 ### Language Analysis
 
+Language Analysis for #coronavirus:
 ![Language Analysis for #coronavirus](https://github.com/lucasLang0/twitter_coronavirus/blob/master/coronavirus_language_count.png)
 
+Language Analysis for #코로나바이러스:
 ![Language Analysis for #코로나바이러스](https://github.com/lucasLang0/twitter_coronavirus/blob/master/%EC%BD%94%EB%A1%9C%EB%82%98%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4_language_count.png)
 
 
 ### Country Analysis
 
+Country Analysis for #coronavirus:
 ![Country Analysis for #coronavirus](https://github.com/lucasLang0/twitter_coronavirus/blob/master/coronavirus_country_count.png)
 
+Country Analysis for #코로나바이러스:
 ![Country Analysis for #코로나바이러스](https://github.com/lucasLang0/twitter_coronavirus/blob/master/%EC%BD%94%EB%A1%9C%EB%82%98%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4_country_count.png)
 
 
