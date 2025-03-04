@@ -47,7 +47,12 @@ if __name__ == "__main__":
         sys.exit(1)
 
     hashtags = sys.argv[1:]
-    data_folder = 'outputs'
+    
+    # Get the directory of the current script
+    script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
+    
+    # Define the path to the outputs folder relative to the script directory
+    data_folder = os.path.join(script_dir, '..', 'outputs')
     
     data = scan_data_files(data_folder, hashtags)
     plot_data(data, hashtags)
