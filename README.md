@@ -24,11 +24,11 @@ MapReduce is a procedure for large-scale parallel processing widely used in indu
 
 ### Task 1: Map
 
-I translated the shell command that counts the number of tweets sent in each language on a particular day into Python. The Python file was called `map.py` and was located in the `src` folder. The script was adjusted to track how many tweets were sent in each language for each hashtag in the `./hashtags` file.
+I created a Python command that counts the number of tweets sent in each language on a particular day. The Python file was called `map.py` and was located in the `src` folder. The outputs of this are in the `outputs/` folder.
 
 ### Task 2: Reduce
 
-I wrote a Python file `./src/reduce.py` that took the outputs from the `map.py` file and reduced them together by performing an element-wise addition of all the counts.
+I wrote a Python file `./src/reduce.py` that took the outputs from the `map.py` file and reduced them together.
 
 ### Main Tasks
 
@@ -59,10 +59,6 @@ I created a new file `alternative_reduce.py` that took a list of hashtags as inp
 
 The script scanned through all the data in the `outputs` folder created by the mapping step, constructed a graph plotting the use of the hashtags #covid19, #corona, and #hospital, and used matplotlib to plot the data.
 
-### Task 5: Uploading
-
-I committed all code and image output files to the GitHub repository and pushed the results to GitHub. I updated the `README.md` file with a brief explanation of the project, including the four generated PNG files.
-
 ## Results
 
 ### Language Analysis
@@ -91,6 +87,4 @@ I committed all code and image output files to the GitHub repository and pushed 
 
 ![Alternative Reduce Plot](https://github.com/lucasLang0/twitter_coronavirus/blob/master/%23covid19_%23corona_%23hospital.png)
 
-## Conclusion
 
-This project successfully analyzed geotagged tweets from 2020 to monitor the spread of the coronavirus on social media. The MapReduce paradigm was used to handle the large-scale dataset efficiently, and the results were visualized using bar graphs and line plots.
